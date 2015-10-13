@@ -27,6 +27,7 @@ public class Magic8BallRemembers extends Magic8Ball {
 	public int getIndexCounter(){
 		return this.indexCounter;
 	}
+	
 	public String shakeIt(String userQuestion){
 		String userAnswer = "";
 		boolean found = false;
@@ -62,6 +63,7 @@ public class Magic8BallRemembers extends Magic8Ball {
 		//System.out.println("read from a file");
 		String filename = (System.getProperty("user.dir") + File.separatorChar +"magic8BallHistory.txt");
 		BufferedReader reader = null;
+		
 		try {
 			reader = new BufferedReader(new FileReader(filename));
 			String line = reader.readLine();
@@ -80,19 +82,18 @@ public class Magic8BallRemembers extends Magic8Ball {
 			reader.close();
 		} catch (IOException e) {
 			System.out.println("File does not exist!");
-		}finally{
-			
 		}
 	}
 	
 	public void writeHistory(){
 	    //System.out.println("writing keys and values to a file");
 	    String filename = (System.getProperty("user.dir") + File.separatorChar +"magic8BallHistory.txt");
-		System.out.println(filename);
+		//System.out.println(filename);
 	        
 	    PrintWriter writer = null;
 		try {
 			writer = new PrintWriter(new File(filename));
+			System.out.println("Histry was saved successfully.");
 		} catch (FileNotFoundException e) {
 			System.out.println("File does not exist!");
 		}
